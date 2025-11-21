@@ -29,7 +29,7 @@
 
 ## Verilog Code:
 ## 4:1 MUX Gate-Level Implementation:
-
+```
 module MUX1(I0,I1,I2,I3,S1,S2,Y);
     input I0,I1,I2,I3,S1,S2;
     output Y;
@@ -42,8 +42,9 @@ module MUX1(I0,I1,I2,I3,S1,S2,Y);
     and (d,I3,S1,S2);
     or (Y,a,b,c,d);    
 endmodule
+```
 ## 4:1 MUX Data Flow Implementation:
-
+```
 module MUX2(A,B,C,D,S1,S0,Y);
     input A,B,C,D,S1,S0;
     output Y;
@@ -54,8 +55,9 @@ module MUX2(A,B,C,D,S1,S0,Y);
                  (S1 == 1 && S0 == 1) ? D: 1'b0;
                                          
 endmodule
+```
 ## 4:1 MUX Behavioral Implementation:
-
+```
 module MUX3(I,S,Y);
     input wire [0:3] I;
     input wire [1:0] S;
@@ -70,8 +72,9 @@ module MUX3(I,S,Y);
         endcase
     end
 endmodule
+```
 ## 4:1 MUX Structural Implementation:
-
+```
 module MUX4(A,B,S,Y);
     input A,B,S;
     output Y;    
@@ -90,9 +93,10 @@ module MUX4_str(I,S,Y);
     MUX4 m3(.A(y1), .B(y1), .S(S[1]), .Y(Y));
     
 endmodule    
+```
 ## Testbench Implementation:
 ## 4:1 MUX Gate-Level Test bench Implementation
-
+```
 module MUX1_TB;
     reg I0_t,I1_t,I2_t,I3_t,S1_t,S2_t;
     wire Y_t;
@@ -128,9 +132,9 @@ module MUX1_TB;
         S2_t = 1'b1;
     end
 endmodule
-
+```
 ## 4:1 MUX Data Flow Test bench Implementation
-
+```
 module MUX2_TB;
     reg a,b,c,d,s1,s0;
     wire y;
@@ -166,8 +170,9 @@ module MUX2_TB;
         s0 = 1'b1;
     end
 endmodule
+```
 ## 4:1 MUX Behavioral Test bench Implementation
-
+```
 module MUX3_TB;
     reg [0:3]I;
     reg [1:0]S;
@@ -188,8 +193,9 @@ module MUX3_TB;
         S = 2'b11;
     end
 endmodule
+```
 ## 4:1 MUX Structural Test bench Implementation
-
+```
 module MUX4_TB;
     reg [0:3]I;
     reg [1:0]S;
@@ -212,9 +218,10 @@ module MUX4_TB;
         S = 2'b11;
      end
 endmodule
+```
 ## Sample Output:
 ## 4:1 MUX Gate-Level Implementation
-
+```
 Time=00 | S1=0 S2=0 | Inputs: I0=1 I1=0 I2=1 I3=0
         | out_gate=1
 Time=100 | S1=0 S2=1 | Inputs: I0=1 I1=0 I2=1 I3=0
@@ -223,8 +230,9 @@ Time=200 | S1=1 S2=0 | Inputs: I0=1 I1=0 I2=1 I3=0
         | out_gate=1
 Time=300 | S1=1 S2=1 | Inputs: I0=1 I1=0 I2=1 I3=0
         | out_gate=0
+```
 ## 4:1 MUX Data Flow Implementation
-
+```
 Time=00 | s[1]=0 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
         | out_dataflow=1
 Time=100 | s[1]=0 s[0]=1 | Inputs: a=1 b=0 c=1 d=0
@@ -233,8 +241,9 @@ Time=200 | s[1]=1 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
         | out_dataflow=1
 Time=300 | s[1]=1 s[0]=1 | Inputs: a=1 b=0 c=1 d=0
         | out_dataflow=0
+```
 ## 4:1 MUX Behavioral Implementation
-
+```
 Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_behavioral=1
 Time=100 | S[1]=0 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
@@ -243,8 +252,9 @@ Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_behavioral=1
 Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_behavioral=0
+```
 ## 4:1 MUX Structural Implementation
-
+```
 Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_structural=1
 Time=100 | S[1]=0 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
@@ -253,6 +263,7 @@ Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_structural=1
 Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_structural=0
+```
 ## Output waveform
 ## Gate-Level:
 
